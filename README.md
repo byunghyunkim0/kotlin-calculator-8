@@ -51,7 +51,7 @@
 
 - [x] 계산 시작 메시지 출력 기능
     - `덧셈할 문자열을 입력해 주세요.`
-- [ ] 계산 결과 메시지 출력 기능
+- [x] 계산 결과 메시지 출력 기능
     - `결과 : n`
 
 ### Model
@@ -63,7 +63,7 @@
 ### View
 
 - [x] `getInput()`: 계산 시작 메시지 출력, `readLine()`을 통한 문자열 입력 처리
-- [ ] `printResult()`: Controller로 부터 받은 결과 출력
+- [x] `printResult()`: Controller로 부터 받은 결과 출력
 
 ### Controller
 

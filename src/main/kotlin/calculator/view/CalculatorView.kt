@@ -8,4 +8,8 @@ class CalculatorView {
         print("덧셈할 문자열을 입력해 주세요.")
         return readLine()
     }
+
+    fun printResult(result: Int) {
+        print("결과 : $result")
+    }
 }
