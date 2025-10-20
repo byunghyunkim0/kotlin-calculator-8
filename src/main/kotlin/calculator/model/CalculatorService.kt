@@ -10,4 +10,10 @@ class CalculatorService {
             input.split(":", ",")
         }
     }
+
+    fun calculate(numbers: List<String>): Int {
+        var res = 0;
+        numbers.forEach { res += it.toInt() }
+        return res
+    }
 }
