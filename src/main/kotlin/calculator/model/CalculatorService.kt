@@ -4,7 +4,7 @@ class CalculatorService {
 
     fun parseInput(input: String): List<String> {
         return if (input.startsWith("//")) {
-            val delimiter = input.split("//", "\n", limit = 3).drop(1)
+            val delimiter = input.split("//", "\\n", limit = 3).drop(1)
             delimiter[1].split(delimiter[0])
         } else {
             input.split(":", ",")
