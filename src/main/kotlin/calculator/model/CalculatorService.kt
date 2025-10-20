@@ -11,6 +11,7 @@ class CalculatorService {
     }
 
     fun defaultParseInput(input: String): List<String> {
+        if (input.isEmpty()) return listOf("0")
         return input.split(":", ",")
     }
 
