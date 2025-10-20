@@ -22,6 +22,22 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `오버_플로우_테스트`() {
+        assertSimpleTest {
+            run("2147483647,1")
+            assertThat(output()).contains("결과 : 2147483648")
+        }
+    }
+
+    @Test
+    fun `큰수_테스트`() {
+        assertSimpleTest {
+            run("10000000000,1000000,10000000000000")
+            assertThat(output()).contains("결과 : 10010001000000")
+        }
+    }
+
     override fun runMain() {
         main()
     }
