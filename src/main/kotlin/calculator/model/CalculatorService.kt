@@ -18,6 +18,7 @@ class CalculatorService {
     fun customParseInput(input: String): List<String> {
         val delimiter = input.split("//", "\\n", limit = 3).drop(1)
         if (delimiter[1].isEmpty()) return listOf("0")
+        if (delimiter[0].isEmpty() || delimiter[0].length > 1) throw IllegalArgumentException()
         return delimiter[1].split(delimiter[0])
     }
 
