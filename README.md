@@ -58,6 +58,8 @@
 
 - [x] `parseInput()`: 입력받은 문자열을 구분자로 분리
 - [x] `calculate`: 구분자로 분리된 숫자를 계산
+    - ~~BigInteger를 통한 덧셈 계산~~
+    - 문자열만 이용하여 덧셈 계산
 - [x] `validateInput()`: 입력받은 문자열을 검증하는 함수
 
 ### View
