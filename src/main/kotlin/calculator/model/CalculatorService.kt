@@ -16,10 +16,15 @@ class CalculatorService {
     }
 
     fun customParseInput(input: String): List<String> {
-        val delimiter = input.split("//", "\\n", limit = 3).drop(1)
-        if (delimiter[1].isEmpty()) return listOf("0")
-        if (delimiter[0].isEmpty() || delimiter[0].length > 1) throw IllegalArgumentException()
-        return delimiter[1].split(delimiter[0])
+        val delimiterIndex = input.indexOf("\\n")
+        if (delimiterIndex == -1) throw IllegalArgumentException()
+
+        val delimiter = input.substring(2, delimiterIndex)
+        val numbers = input.substring(delimiterIndex + 2)
+
+        if (numbers.isEmpty()) return listOf("0")
+        if (delimiter.isEmpty() || delimiter.length > 1) throw IllegalArgumentException()
+        return numbers.split(delimiter)
     }
 
     fun calculate(numbers: List<String>): String {
