@@ -9,7 +9,7 @@ class CalculatorView {
         return readLine()
     }
 
-    fun printResult(result: Int) {
+    fun printResult(result: String) {
         print("결과 : $result")
     }
 }

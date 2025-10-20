@@ -22,10 +22,29 @@ class CalculatorService {
         return delimiter[1].split(delimiter[0])
     }
 
-    fun calculate(numbers: List<String>): Int {
-        var res = 0;
-        numbers.forEach { res += it.toInt() }
+    fun calculate(numbers: List<String>): String {
+        var res = "0"
+        for (num in numbers) {
+            res = sumTwoNumbers(num, res)
+        }
         return res
+    }
+
+    fun sumTwoNumbers(a: String, b: String): String {
+        val digitsA = a.reversed().map { it - '0' }
+        val digitsB = b.reversed().map { it - '0' }
+        val maxLen = maxOf(digitsA.size, digitsB.size)
+        val result = MutableList(maxLen) { 0 }
+        var addNum = 0
+        for (i in 0 until maxLen) {
+            val da = if (i < digitsA.size) digitsA[i] else 0
+            val db = if (i < digitsB.size) digitsB[i] else 0
+            val sum = da + db + addNum
+            result[i] = sum % 10
+            addNum = sum / 10
+        }
+        if (addNum > 0) result.add(addNum)
+        return result.reversed().joinToString("")
     }
 
     fun validateInput(numbers: List<String>) {
