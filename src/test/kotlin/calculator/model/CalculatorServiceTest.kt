@@ -37,7 +37,7 @@ class CalculatorServiceTest {
     @Test
     fun `커스텀_문자열_공백_입력_테스트`() {
         assertSimpleTest {
-            val input = "//;\n"
+            val input = "//;\\n"
             val res = listOf("0")
             assertThat(calculatorService.customParseInput(input)).isEqualTo(res)
         }
@@ -46,7 +46,7 @@ class CalculatorServiceTest {
     @Test
     fun `커스텀_문자열_입력_테스트`() {
         assertSimpleTest {
-            val input = "//;\n10;50;20"
+            val input = "//;\\n10;50;20"
             val res = listOf("10", "50", "20")
             assertThat(calculatorService.customParseInput(input)).isEqualTo(res)
         }
@@ -55,7 +55,7 @@ class CalculatorServiceTest {
     @Test
     fun `커스텀_문자열_구분자_미입력_테스트`() {
         assertSimpleTest {
-            val input = "//\n50"
+            val input = "//\\n50"
             assertThrows<IllegalArgumentException> { calculatorService.customParseInput(input) }
         }
     }
@@ -63,7 +63,7 @@ class CalculatorServiceTest {
     @Test
     fun `커스텀_문자열_구분자_길이_테스트`() {
         assertSimpleTest {
-            val input = "//>;\n100>;50"
+            val input = "//>;\\n100>;50"
             assertThrows<IllegalArgumentException> { calculatorService.customParseInput(input) }
         }
     }
