@@ -67,4 +67,28 @@ class CalculatorServiceTest {
             assertThrows<IllegalArgumentException> { calculatorService.customParseInput(input) }
         }
     }
+
+    @Test
+    fun `분리된_숫자_구분자_검증_테스트`() {
+        assertSimpleTest {
+            val input = listOf("10", "39", "1;1")
+            assertThrows<IllegalArgumentException> { calculatorService.validateInput(input) }
+        }
+    }
+
+    @Test
+    fun `분리된_숫자_공백_검증_테스트`() {
+        assertSimpleTest {
+            val input = listOf("10", "1", "", "20")
+            assertThrows<IllegalArgumentException> { calculatorService.validateInput(input) }
+        }
+    }
+
+    @Test
+    fun `분리된_숫자_양수_검증_테스트`() {
+        assertSimpleTest {
+            val input = listOf("10", "1", "-10", "40")
+            assertThrows<IllegalArgumentException> { calculatorService.validateInput(input) }
+        }
+    }
 }
