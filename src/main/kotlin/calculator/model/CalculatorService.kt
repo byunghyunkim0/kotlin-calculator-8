@@ -30,7 +30,8 @@ class CalculatorService {
 
     fun validateInput(numbers: List<String>) {
         numbers.forEach {
-            it.toIntOrNull() ?: throw IllegalArgumentException()
+            val number = it.toIntOrNull() ?: throw IllegalArgumentException()
+            if (number < 0) throw IllegalArgumentException()
         }
     }
 }
