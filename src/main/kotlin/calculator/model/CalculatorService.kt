@@ -4,11 +4,19 @@ class CalculatorService {
 
     fun parseInput(input: String): List<String> {
         return if (input.startsWith("//")) {
-            val delimiter = input.split("//", "\\n", limit = 3).drop(1)
-            delimiter[1].split(delimiter[0])
-        } else {
-            input.split(":", ",")
-        }
+            customParseInput(input)
+        } else if (input[0].isDigit()) {
+            defaultParseInput(input)
+        } else throw IllegalArgumentException()
+    }
+
+    fun defaultParseInput(input: String): List<String> {
+        return input.split(":", ",")
+    }
+
+    fun customParseInput(input: String): List<String> {
+        val delimiter = input.split("//", "\\n", limit = 3).drop(1)
+        return delimiter[1].split(delimiter[0])
     }
 
     fun calculate(numbers: List<String>): Int {
