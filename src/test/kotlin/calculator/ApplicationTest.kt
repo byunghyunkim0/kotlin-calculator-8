@@ -38,6 +38,13 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `구분자_예외_테스트`() {
+        assertSimpleTest {
+            assertThrows<IllegalArgumentException> { runException("//;2;34") }
+        }
+    }
+
     override fun runMain() {
         main()
     }
