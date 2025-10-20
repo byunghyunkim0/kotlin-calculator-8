@@ -10,6 +10,7 @@ class CalculatorController {
     fun run() {
         val input = calculatorView.getInput()
         val numbers = calculatorService.parseInput(input)
+        calculatorService.validateInput(numbers)
         val result = calculatorService.calculate(numbers)
         calculatorView.printResult(result)
     }

@@ -16,4 +16,10 @@ class CalculatorService {
         numbers.forEach { res += it.toInt() }
         return res
     }
+
+    fun validateInput(numbers: List<String>) {
+        numbers.forEach {
+            if (!it[0].isDigit()) throw IllegalArgumentException("문자열은 양수만 입력가능합니다.")
+        }
+    }
 }
