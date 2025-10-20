@@ -30,8 +30,8 @@ class CalculatorService {
 
     fun validateInput(numbers: List<String>) {
         numbers.forEach {
-            val number = it.toIntOrNull() ?: throw IllegalArgumentException()
-            if (number < 0) throw IllegalArgumentException()
+            require(it.all { ch -> ch.isDigit() }) { throw IllegalArgumentException() }
+            require(!it.isEmpty()) { throw IllegalArgumentException() }
         }
     }
 }
