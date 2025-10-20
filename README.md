@@ -67,4 +67,4 @@
 
 ### Controller
 
-- [ ] `run()`: 예외 처리와 Service의 비즈니스 로직 처리 연결, View에 계산 결과 전달
+- [x] `run()`: 예외 처리와 Service의 비즈니스 로직 처리 연결, View에 계산 결과 전달
